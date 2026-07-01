@@ -1,0 +1,1178 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Karak station </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/style.css">
+    <style>
+        .menu-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+        .menu-tabs .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            min-width: 160px;
+            max-width: 240px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,.08);
+            background: #fff;
+            color: #2b2b2b;
+            font-weight: 500;
+            text-transform: none;
+            font-size: 14px;
+            transition: all .25s ease;
+        }
+        .menu-tabs .nav-link:hover {
+            background: #ff5600;
+            border-color: #ff5600;
+            color: #fff;
+        }
+        .menu-tabs .nav-link.active {
+            background: #ff5600;
+            border-color: #ff5600;
+            color: #fff;
+        }
+        .menu-items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -12px;
+        }
+        .menu-items-grid .col-lg-4,
+        .menu-items-grid .col-md-6 {
+            padding: 12px;
+        }
+        .menu-item-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 18px;
+            padding: 16px;
+            min-height: 140px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+        .menu-item-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 16px;
+            flex-shrink: 0;
+        }
+        .menu-item-card-body {
+            flex: 1;
+            min-width: 0;
+        }
+        .menu-item-card-body h4 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+        .menu-item-card-body p {
+            margin: 0;
+            color: #6d6d6d;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .menu-item-card-body .price {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #ff5600;
+            font-weight: 700;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ff5600;
+            background: #fff;
+            color: #ff5600;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+        .qty-btn:hover {
+            background: #ff5600;
+            color: #fff;
+        }
+        .qty-display {
+            min-width: 50px;
+            text-align: center;
+            font-weight: bold;
+            color: #ff5600;
+        }
+        .selected-items-section {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 350px;
+            max-height: 500px;
+            background: #fff;
+            border: 2px solid #ff5600;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .selected-items-section.show {
+            display: flex;
+        }
+        .selected-items-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff5600;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ff5600;
+            padding-bottom: 10px;
+        }
+        .selected-items-list {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .selected-item-name {
+            flex: 1;
+            font-weight: 500;
+            color: #2b2b2b;
+        }
+        .selected-item-qty {
+            background: #ff5600;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .selected-item-price {
+            color: #ff5600;
+            font-weight: bold;
+        }
+        .total-section {
+            border-top: 2px solid #ff5600;
+            padding-top: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2b2b2b;
+        }
+        .total-price {
+            color: #ff5600;
+            font-size: 20px;
+        }
+        .order-btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff5600;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.25s ease;
+        }
+        .order-btn:hover {
+            background: #e64a00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 86, 0, 0.3);
+        }
+        .order-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .remove-item-btn {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.25s ease;
+        }
+        .remove-item-btn:hover {
+            background: #ff5252;
+        }
+        #orderOnlineBtn {
+            display: none !important;
+        }
+        .size-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .size-modal.show {
+            display: flex;
+        }
+        .size-modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+        .size-modal-content h3 {
+            color: #ff5600;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .size-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .size-btn {
+            padding: 12px;
+            border: 2px solid #ff5600;
+            background: #fff;
+            color: #ff5600;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+        .size-btn:hover {
+            background: #ff5600;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .menu-tabs .nav-link {
+                min-width: 140px;
+                font-size: 13px;
+                padding: 10px 16px;
+            }
+            .menu-item-card {
+                flex-wrap: wrap;
+            }
+            .menu-item-card img {
+                width: 100%;
+                height: auto;
+            }
+            .selected-items-section {
+                width: 90%;
+                right: 5%;
+                left: 5%;
+            }
+            .size-modal-content {
+                max-width: 90%;
+            }
+        }
+        
+        /* Logo and Text Animation */
+        @keyframes logoSlideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes textSlideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes textBounce {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+        
+        .logo {
+            animation: logoSlideInLeft 0.8s ease-out;
+        }
+        
+        .logo a img {
+            animation: logoSlideInLeft 0.8s ease-out;
+        }
+        
+        .logo span {
+            animation: textSlideInRight 0.8s ease-out 0.3s both;
+        }
+        
+        .logo span:hover {
+            animation: textBounce 0.6s ease-in-out;
+        }
+        
+        /* Footer logo white color */
+        .footer-logo img {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+<body>
+    <!--? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!--? Header Start -->
+        <div class="header-area">
+                <div class="main-header  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo d-flex align-items-center">
+                                    <a href="index.html"><img src="logo/logo.png" alt=""></a>
+                                    <span style="color: #ff0033; font-size: 40px; font-weight: 600; margin-left: 10px; white-space: nowrap;">KARAK STATION</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                                <div class="menu-main d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav> 
+                                            <ul id="navigation">
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="menu.html">Menu</a></li>
+                                                <li><a href="blog.html">Blog</a>
+                                                    <ul class="submenu">
+                                                        <li><a href="blog.html">Blog</a></li>
+                                                        <li><a href="blog_details.html">Blog Details</a></li>
+                                                        <li><a href="elements.html">Element</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="contact.html">Contact</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="header-right-btn f-right d-none d-lg-block ml-20">
+                                        <a href="full_menu.html" class="border-btn header-btn">Full Menu</a>
+                                        <a href="menu.html" id="orderOnlineBtn" class="border-btn header-btn">Order Online</a>
+                                    </div>
+                                </div>
+                            </div>   
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!--? gallery Products Start -->
+        <section class="gallery-area fix ">
+            <!-- Gallery Top Start -->
+            <div class="gallery-top section-bg pt-90 pb-40" data-background="gallery/section_bg01.png">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="cl-xl-7 col-lg-8 col-md-10">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle text-center mb-70">
+                                <span>Our Offerd Menu</span>
+                                <h2>Some Trendy And  Popular Courses Offerd</h2>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="properties__button">
+                            <!--Nav Button  -->
+                            <nav>
+                                <div class="nav nav-tabs menu-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-burgers-tab" data-toggle="tab" href="#nav-burgers" role="tab" aria-controls="nav-burgers" aria-selected="true">Burgers &amp; Sandwiches</a>
+                                    <a class="nav-item nav-link" id="nav-wraps-tab" data-toggle="tab" href="#nav-wraps" role="tab" aria-controls="nav-wraps" aria-selected="false">Wraps &amp; Rolls</a>
+                                    <a class="nav-item nav-link" id="nav-combo-tab" data-toggle="tab" href="#nav-combo" role="tab" aria-controls="nav-combo" aria-selected="false">Combo Sandwich</a>
+                                    <a class="nav-item nav-link" id="nav-club-tab" data-toggle="tab" href="#nav-club" role="tab" aria-controls="nav-club" aria-selected="false">Club Sandwich</a>
+                                    <a class="nav-item nav-link" id="nav-paratha-tab" data-toggle="tab" href="#nav-paratha" role="tab" aria-controls="nav-paratha" aria-selected="false">Paratha</a>
+                                    <a class="nav-item nav-link" id="nav-fries-tab" data-toggle="tab" href="#nav-fries" role="tab" aria-controls="nav-fries" aria-selected="false">Fries &amp; Diet</a>
+                                    <a class="nav-item nav-link" id="nav-chicken-tab" data-toggle="tab" href="#nav-chicken" role="tab" aria-controls="nav-chicken" aria-selected="false">Chicken &amp; BBQ</a>
+                                    <a class="nav-item nav-link" id="nav-biryani-tab" data-toggle="tab" href="#nav-biryani" role="tab" aria-controls="nav-biryani" aria-selected="false">Biryani, Rice &amp; Noodles</a>
+                                    <a class="nav-item nav-link" id="nav-snacks-tab" data-toggle="tab" href="#nav-snacks" role="tab" aria-controls="nav-snacks" aria-selected="false">Snacks &amp; Plates</a>
+                                    <a class="nav-item nav-link" id="nav-drinks-tab" data-toggle="tab" href="#nav-drinks" role="tab" aria-controls="nav-drinks" aria-selected="false">Drinks &amp; Coffee</a>
+                                </div>
+                            </nav>
+                            <!--End Nav Button  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Top End -->
+            <!-- Gallery Bottom Start -->
+            <div class="container-fluid p-0">
+                <!-- Nav Card -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-burgers" role="tabpanel" aria-labelledby="nav-burgers-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-wraps" role="tabpanel" aria-labelledby="nav-wraps-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-combo" role="tabpanel" aria-labelledby="nav-combo-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-club" role="tabpanel" aria-labelledby="nav-club-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-paratha" role="tabpanel" aria-labelledby="nav-paratha-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-fries" role="tabpanel" aria-labelledby="nav-fries-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-chicken" role="tabpanel" aria-labelledby="nav-chicken-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-biryani" role="tabpanel" aria-labelledby="nav-biryani-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-snacks" role="tabpanel" aria-labelledby="nav-snacks-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-drinks" role="tabpanel" aria-labelledby="nav-drinks-tab">
+                        <div class="row menu-items-grid"></div>
+                    </div>
+                </div>
+                <!-- End Nav Card -->
+            </div>
+            <!-- Gallery Bottom End -->
+        </section>
+        <!-- gallery Products End -->
+        <script>
+            const menuData = {
+                burgers: [
+                    {name: 'BBQ Beef Fresh Burger', price: 'QR 25 / 28', image: 'page-thumbs/page2_Im0.jpg', desc: 'Smoky beef burger served with fries.'},
+                    {name: 'Ruman Fresh Burger', price: 'QR 22 / 26', image: 'page-thumbs/page2_Im0.jpg', desc: 'Beef or chicken burger with signature sauce.'},
+                    {name: 'Karak Double Fresh Burger', price: 'QR 22 / 26', image: 'page-thumbs/page2_Im0.jpg', desc: 'Double meat burger with cheese and veggies.'},
+                    {name: 'Mushroom Fresh Burger', price: 'QR 22', image: 'page-thumbs/page3_Im0.jpg', desc: 'Burger topped with sautéed mushrooms and cheese.'},
+                    {name: 'Takis Blue Heart Burger', price: 'QR 18', image: 'page-thumbs/page3_Im0.jpg', desc: 'Spicy chicken beef burger with fries.'},
+                    {name: 'Cheetos Burger', price: 'QR 22', image: 'page-thumbs/page3_Im0.jpg', desc: 'Crunchy Cheetos topping on a juicy burger.'},
+                    {name: 'Beef Signature Burger', price: 'QR 22', image: 'page-thumbs/page3_Im0.jpg', desc: 'House signature beef burger with sauce.'},
+                    {name: 'Pineapple Burger', price: 'QR 18', image: 'page-thumbs/page3_Im0.jpg', desc: 'Sweet pineapple and cheese burger.'},
+                    {name: 'Dynamite Beef Burger', price: 'QR 22', image: 'page-thumbs/page3_Im0.jpg', desc: 'Spicy beef burger with crispy topping.'},
+                    {name: 'Mega Zinger', price: 'QR 16', image: 'page-thumbs/page6_Im0.jpg', desc: 'Crispy zinger burger with fresh lettuce.'},
+                    {name: 'Double Beef', price: 'QR 13', image: 'page-thumbs/page6_Im0.jpg', desc: 'Double beef burger with cheese and mayo.'},
+                    {name: 'Mix Burger', price: 'QR 10', image: 'page-thumbs/page6_Im0.jpg', desc: 'Mixed chicken and beef burger.'},
+                    {name: 'Chicken Burger', price: 'QR 8', image: 'page-thumbs/page6_Im0.jpg', desc: 'Soft chicken burger with tomato and lettuce.'},
+                    {name: 'Shish Twook Burger', price: 'QR 10', image: 'page-thumbs/page6_Im0.jpg', desc: 'Grilled shish tawook style burger.'},
+                    {name: 'Kajoon Burger', price: 'QR 12', image: 'page-thumbs/page6_Im0.jpg', desc: 'Flavored beef burger with fresh toppings.'},
+                    {name: 'Tandoori Burger', price: 'QR 10', image: 'page-thumbs/page6_Im0.jpg', desc: 'Tandoori chicken burger with spices.'},
+                    {name: 'Chicken Fillet Burger', price: 'QR 12', image: 'page-thumbs/page6_Im0.jpg', desc: 'Grilled chicken fillet with salad.'},
+                    {name: 'Zinger Burger', price: 'QR 12', image: 'page-thumbs/page6_Im0.jpg', desc: 'Crispy zinger burger with spicy sauce.'}
+                ],
+                wraps: [
+                    {name: 'Mathafi Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Signature Mathafi wrap with sauce.'},
+                    {name: 'Tikka Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Spicy tikka chicken wrap.'},
+                    {name: 'Fillet Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Tender fillet wrapped with salad.'},
+                    {name: 'Zinger Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Crispy zinger wrapped with sauce.'},
+                    {name: 'Falafel Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Falafel with fresh vegetables.'},
+                    {name: 'Kofta Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Spiced kofta inside a wrap.'},
+                    {name: 'Nuggets Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Nuggets wrapped in soft bread.'},
+                    {name: 'Hotdog Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Hotdog wrapped with salad.'},
+                    {name: 'Egg Wrap', price: 'QR 10', image: 'page-thumbs/page10_Im0.jpg', desc: 'Egg wrap with fresh vegetables.'},
+                    {name: 'Mega Qatar Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Large Qatar style wrap.'},
+                    {name: 'Sheesh Tawook Wrap', price: 'QR 12', image: 'page-thumbs/page10_Im0.jpg', desc: 'Grilled chicken shawarma wrap.'},
+                    {name: 'Chicken Fantasia Wrap', price: 'QR 15', image: 'page-thumbs/page10_Im0.jpg', desc: 'Premium chicken wrap with fries.'}
+                ],
+                fries: [
+                    {name: 'Dynamite Fries', price: 'QR 16', image: 'page-thumbs/page4_Im0.jpg', desc: 'Loaded fries with spicy sauce.'},
+                    {name: 'Prawn Fries', price: 'QR 20', image: 'page-thumbs/page4_Im0.jpg', desc: 'Crispy prawn fries with sauce.'},
+                    {name: 'Dynamite Chicken Fries', price: 'QR 15', image: 'page-thumbs/page4_Im0.jpg', desc: 'Spicy chicken loaded fries.'},
+                    {name: 'Animal Fries', price: 'QR 20', image: 'page-thumbs/page4_Im0.jpg', desc: 'Cheesy animal fries with toppings.'},
+                    {name: 'Cheesy Fries', price: 'QR 13', image: 'page-thumbs/page4_Im0.jpg', desc: 'Classic cheesy fries.'},
+                    {name: 'Egg Club', price: 'QR 15', image: 'page-thumbs/page4_Im0.jpg', desc: 'Healthy boiled egg club sandwich.'},
+                    {name: 'Chicken Boiled Sandwich', price: 'QR 15', image: 'page-thumbs/page4_Im0.jpg', desc: 'Diet-style chicken boiled sandwich.'},
+                    {name: 'Mushroom Slice', price: 'QR 8', image: 'page-thumbs/page4_Im0.jpg', desc: 'Warm mushroom slice sandwich.'},
+                    {name: 'Cheese With Honey', price: 'QR 6', image: 'page-thumbs/page4_Im0.jpg', desc: 'Sweet cheese with honey sandwich.'}
+                ],
+                combo: [
+                    {name: 'Mega Zinger SP', price: 'QR 16', image: 'page-thumbs/page8_Im0.jpg', desc: 'Special zinger sandwich with fries.'},
+                    {name: 'Prawns Burger', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Prawn burger with fresh vegetables.'},
+                    {name: 'Mathafi Combo', price: 'QR 13', image: 'page-thumbs/page8_Im0.jpg', desc: 'Large combo with sandwich and side.'},
+                    {name: 'Beef Kabab Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Beef kabab sandwich served with fries.'},
+                    {name: 'Zinger Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Crispy zinger sandwich combo.'},
+                    {name: 'Chicken Fillet Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Grilled fillet sandwich with sides.'},
+                    {name: 'Prawns Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Prawns sandwich combo with chips.'},
+                    {name: 'Tandoori Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Tandoori chicken sandwich with fries.'},
+                    {name: 'Hot Dog Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Classic hot dog with fries.'},
+                    {name: 'Nuggets Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Chicken nuggets with dipping sauce.'},
+                    {name: 'Kofta Combo', price: 'QR 12', image: 'page-thumbs/page8_Im0.jpg', desc: 'Kofta sandwich combo with salad.'}
+                ],
+                club: [
+                    {name: 'Normal Club', price: 'QR 12', image: 'page-thumbs/page7_Im0.jpg', desc: 'Classic club sandwich with fresh greens.'},
+                    {name: 'Zinger Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Spicy zinger club with fries.'},
+                    {name: 'Pistachio Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Special pistachio club sandwich.'},
+                    {name: 'Fillet Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Club sandwich with chicken fillet.'},
+                    {name: 'Falafel Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Vegetarian falafel club.'},
+                    {name: 'Veg Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Fresh vegetable club sandwich.'},
+                    {name: 'Hotdog Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Club style hotdog sandwich.'},
+                    {name: 'Beef Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Beef club with cheese and veggies.'},
+                    {name: 'Club 65', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Special Club 65 sandwich.'},
+                    {name: 'Chicken Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'Chicken club with mayo and lettuce.'},
+                    {name: 'Special Club', price: 'QR 15', image: 'page-thumbs/page7_Im0.jpg', desc: 'House special club sandwich.'}
+                ],
+                paratha: [
+                    {name: 'Zinger Paratha', price: 'QR 12', image: 'page-thumbs/page9_Im0.jpg', desc: 'Zinger wrapped in paratha bread.'},
+                    {name: 'Fillet Paratha', price: 'QR 8', image: 'page-thumbs/page9_Im0.jpg', desc: 'Chicken fillet inside paratha.'},
+                    {name: 'Nuggets Paratha', price: 'QR 8', image: 'page-thumbs/page9_Im0.jpg', desc: 'Nuggets wrapped in soft paratha.'},
+                    {name: 'Prawns Paratha', price: 'QR 10', image: 'page-thumbs/page9_Im0.jpg', desc: 'Prawns wrapped in paratha bread.'},
+                    {name: 'Kabab Paratha', price: 'QR 8', image: 'page-thumbs/page9_Im0.jpg', desc: 'Kabab wrapped with spices.'},
+                    {name: 'Chicken Paratha', price: 'QR 4', image: 'page-thumbs/page9_Im0.jpg', desc: 'Chicken paratha roll.'},
+                    {name: 'Egg Paratha', price: 'QR 4', image: 'page-thumbs/page9_Im0.jpg', desc: 'Egg wrapped in paratha.'},
+                    {name: 'Dinner Paratha', price: 'QR 5', image: 'page-thumbs/page9_Im0.jpg', desc: 'Dinner style paratha roll.'},
+                    {name: 'Boiled Egg Paratha', price: 'QR 4', image: 'page-thumbs/page9_Im0.jpg', desc: 'Boiled egg paratha with salad.'},
+                    {name: 'Falafel Paratha', price: 'QR 4', image: 'page-thumbs/page9_Im0.jpg', desc: 'Falafel wrapped in paratha.'},
+                    {name: 'Chilli Chicken Paratha', price: 'QR 5', image: 'page-thumbs/page9_Im0.jpg', desc: 'Spicy chilli chicken paratha.'},
+                    {name: 'Beef Paratha', price: 'QR 5', image: 'page-thumbs/page9_Im0.jpg', desc: 'Beef wrapped in paratha bread.'}
+                ],
+                chicken: [
+                    {name: 'Jumbo Meal', price: 'QR 22', image: 'page-thumbs/page5_Im0.jpg', desc: '4 pcs chicken with coleslaw, garlic fries and bun.'},
+                    {name: 'Party Meal', price: 'QR 90', image: 'page-thumbs/page5_Im0.jpg', desc: '18 pcs chicken with coleslaw, garlic fries, bun and Pepsi.'},
+                    {name: 'Karak Meals', price: 'QR 16', image: 'page-thumbs/page5_Im0.jpg', desc: '3 pcs chicken with coleslaw, garlic fries and bun.'},
+                    {name: 'Family Meals', price: 'QR 45', image: 'page-thumbs/page5_Im0.jpg', desc: '8 pcs chicken with coleslaw, garlic fries, bun and Pepsi.'},
+                    {name: 'Chicken Green BBQ', price: 'QR 14 / 26', image: 'page-thumbs/page14_Im0.jpg', desc: 'Green BBQ chicken served hot.'},
+                    {name: 'Chicken BBQ', price: 'QR 14 / 26', image: 'page-thumbs/page14_Im0.jpg', desc: 'Grilled chicken BBQ with sides.'},
+                    {name: 'Shawarma Roll', price: 'QR 7', image: 'page-thumbs/page14_Im0.jpg', desc: 'Classic shawarma roll with garlic sauce.'},
+                    {name: 'Shawarma Plate', price: 'QR 15', image: 'page-thumbs/page14_Im0.jpg', desc: 'Shawarma served as a plate with salad.'},
+                    {name: 'Chicken Chukka', price: 'QR 12', image: 'page-thumbs/page14_Im0.jpg', desc: 'Spicy chicken chukka specialty.'},
+                    {name: 'Fish BBQ', price: 'As per size', image: 'page-thumbs/page14_Im0.jpg', desc: 'Fresh fish BBQ prepared to order.'}
+                ],
+                biryani: [
+                    {name: 'Mutton Biryani', price: 'QR 16', image: 'page-thumbs/page12_Im0.jpg', desc: 'Fragrant mutton biryani with spices.'},
+                    {name: 'Fish Biryani', price: 'QR 15', image: 'page-thumbs/page12_Im0.jpg', desc: 'Seafood biryani served with salad.'},
+                    {name: 'Veg Biryani', price: 'QR 10', image: 'page-thumbs/page12_Im0.jpg', desc: 'Vegetable biryani with aromatic rice.'},
+                    {name: 'Chicken Dum Biryani', price: 'QR 12', image: 'page-thumbs/page12_Im0.jpg', desc: 'Slow-cooked chicken biryani.'},
+                    {name: 'Beef Biryani', price: 'QR 14', image: 'page-thumbs/page12_Im0.jpg', desc: 'Beef biryani with flavorful rice.'},
+                    {name: 'Beef Biryani SP', price: 'QR 20', image: 'page-thumbs/page12_Im0.jpg', desc: 'Special beef biryani portion.'},
+                    {name: 'Chicken Biryani SP', price: 'QR 18', image: 'page-thumbs/page12_Im0.jpg', desc: 'Special chicken biryani portion.'},
+                    {name: 'Chicken Fried Rice', price: 'QR 14', image: 'page-thumbs/page15_Im0.jpg', desc: 'Fried rice with chicken and vegetables.'},
+                    {name: 'Beef Fried Rice', price: 'QR 15', image: 'page-thumbs/page15_Im0.jpg', desc: 'Beef fried rice with house seasoning.'},
+                    {name: 'Prawns Fried Rice', price: 'QR 18', image: 'page-thumbs/page15_Im0.jpg', desc: 'Prawns and egg in spicy fried rice.'},
+                    {name: 'Vegetable Fried Rice', price: 'QR 12', image: 'page-thumbs/page15_Im0.jpg', desc: 'Mixed vegetable fried rice.'},
+                    {name: 'Egg Fried Rice', price: 'QR 12', image: 'page-thumbs/page15_Im0.jpg', desc: 'Classic egg fried rice.'},
+                    {name: 'Mix Fried Rice', price: 'QR 18', image: 'page-thumbs/page15_Im0.jpg', desc: 'Mixed meat and egg fried rice.'},
+                    {name: 'Chicken Schezwan Fried Rice', price: 'QR 17', image: 'page-thumbs/page15_Im0.jpg', desc: 'Schezwan style chicken fried rice.'},
+                    {name: 'Beef Schezwan Fried Rice', price: 'QR 20 / 18', image: 'page-thumbs/page15_Im0.jpg', desc: 'Schezwan beef fried rice.'},
+                    {name: 'Chicken Noodles', price: 'QR 15', image: 'page-thumbs/page15_Im0.jpg', desc: 'Chicken noodles with vegetables.'},
+                    {name: 'Beef Noodles', price: 'QR 16', image: 'page-thumbs/page15_Im0.jpg', desc: 'Beef noodles with house sauce.'},
+                    {name: 'Prawns Noodles', price: 'QR 18', image: 'page-thumbs/page15_Im0.jpg', desc: 'Prawns noodle with spicy sauce.'},
+                    {name: 'Veg Noodles', price: 'QR 12', image: 'page-thumbs/page15_Im0.jpg', desc: 'Vegetable noodles with light sauce.'},
+                    {name: 'Egg Noodles', price: 'QR 12', image: 'page-thumbs/page15_Im0.jpg', desc: 'Egg noodles with fresh veggies.'},
+                    {name: 'Mix Noodles', price: 'QR 18', image: 'page-thumbs/page15_Im0.jpg', desc: 'Mixed noodles with meats and veggies.'},
+                    {name: 'Chicken Schezwan Noodles', price: 'QR 17', image: 'page-thumbs/page15_Im0.jpg', desc: 'Schezwan chicken noodles.'},
+                    {name: 'Beef Schezwan Noodles', price: 'QR 17', image: 'page-thumbs/page15_Im0.jpg', desc: 'Schezwan beef noodles.'},
+                    {name: 'Prawns Schezwan Noodles', price: 'QR 20', image: 'page-thumbs/page15_Im0.jpg', desc: 'Schezwan prawns noodles.'}
+                ],
+                snacks: [
+                    {name: 'Kids Meal', price: 'QR 15', image: 'page-thumbs/page11_Im0.jpg', desc: 'Child-friendly meal with nuggets.'},
+                    {name: 'Popcorn Mix', price: 'QR 13', image: 'page-thumbs/page11_Im0.jpg', desc: 'Mixed popcorn with seasoning.'},
+                    {name: 'Popcorn', price: 'QR 13', image: 'page-thumbs/page11_Im0.jpg', desc: 'Classic popcorn snack.'},
+                    {name: 'Hotdog Plate', price: 'QR 15', image: 'page-thumbs/page11_Im0.jpg', desc: 'Hotdog served with fries.'},
+                    {name: 'Potato Wedges Plate', price: 'QR 15', image: 'page-thumbs/page11_Im0.jpg', desc: 'Seasoned potato wedges.'},
+                    {name: 'Onion Rings Plate', price: 'QR 8 / 12', image: 'page-thumbs/page11_Im0.jpg', desc: 'Crispy onion rings.'},
+                    {name: 'Chicken Nuggets Plate', price: 'QR 14', image: 'page-thumbs/page11_Im0.jpg', desc: 'Chicken nuggets served with dip.'},
+                    {name: 'Chicken Fillet Plate', price: 'QR 14', image: 'page-thumbs/page11_Im0.jpg', desc: 'Chicken fillet plate with sides.'},
+                    {name: 'Potato Ring Plate', price: 'QR 8 / 12', image: 'page-thumbs/page11_Im0.jpg', desc: 'Crispy potato rings.'},
+                    {name: 'French Fries Plate', price: 'QR 7 / 10', image: 'page-thumbs/page11_Im0.jpg', desc: 'French fries served hot.'},
+                    {name: 'Dynamite Fries', price: 'QR 16', image: 'page-thumbs/page11_Im0.jpg', desc: 'Loaded fries with sauce.'},
+                    {name: 'Cheesy Fries', price: 'QR 13', image: 'page-thumbs/page11_Im0.jpg', desc: 'Fries topped with cheese.'},
+                    {name: 'Dynamite Chicken Fries', price: 'QR 15', image: 'page-thumbs/page11_Im0.jpg', desc: 'Chicken fries with spicy cheese.'}
+                ],
+                drinks: [
+                    {name: 'Strawberry', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Fresh strawberry drink.'},
+                    {name: 'Carrot', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Healthy carrot juice.'},
+                    {name: 'Apple', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Apple drink with ice.'},
+                    {name: 'Orange', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Fresh orange juice.'},
+                    {name: 'Grape', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Grape juice with fruit notes.'},
+                    {name: 'Chikku', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Sweet chikku beverage.'},
+                    {name: 'Pomegranate', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Pomegranate juice.'},
+                    {name: 'Pineapple', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Pineapple smoothie.'},
+                    {name: 'Lemon Mint', price: 'QR 5 / 8', image: 'page-thumbs/page17_Im0.jpg', desc: 'Refreshing lemon mint drink.'},
+                    {name: 'Sweet Melon', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Melon-flavored refreshment.'},
+                    {name: 'Papaya', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Papaya drink with ice.'},
+                    {name: 'Mango', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Mango smoothie with fruit.'},
+                    {name: 'Avocado', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Avocado shake with cream.'},
+                    {name: 'Watermelon', price: 'QR 5 / 8', image: 'page-thumbs/page17_Im0.jpg', desc: 'Fresh watermelon drink.'},
+                    {name: 'Tender Coconut', price: 'QR 7 / 12', image: 'page-thumbs/page17_Im0.jpg', desc: 'Coconut water with pulp.'},
+                    {name: 'Strawberry Falooda', price: 'QR 15', image: 'page-thumbs/page18_Im0.jpg', desc: 'Strawberry falooda dessert drink.'},
+                    {name: 'Mango Falooda', price: 'QR 15', image: 'page-thumbs/page18_Im0.jpg', desc: 'Mango falooda cup.'},
+                    {name: 'Vanilla Falooda', price: 'QR 13', image: 'page-thumbs/page18_Im0.jpg', desc: 'Creamy vanilla falooda.'},
+                    {name: 'Arabian Night', price: 'QR 13', image: 'page-thumbs/page18_Im0.jpg', desc: 'Rich Arabian falooda blend.'},
+                    {name: 'Karak SP', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Special Karak signature drink.'},
+                    {name: 'Fifty Fifty', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Two-flavor cold drink.'},
+                    {name: 'Doha SP', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Special Doha drink.'},
+                    {name: 'Abood', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Abood refreshing drink.'},
+                    {name: 'Abadi', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Chilled Abadi shake.'},
+                    {name: 'Pink Beauty', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Pink flavored drink.'},
+                    {name: 'Chikoo Shake', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Chocolate chikoo shake.'},
+                    {name: 'Galaxy Shake', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Galaxy shake with cream.'},
+                    {name: 'Lovers Punch', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Fruity love punch.'},
+                    {name: 'Tabakath', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Special layered drink.'},
+                    {name: 'Burj Dubai', price: 'QR 12', image: 'page-thumbs/page19_Im0.jpg', desc: 'Signature Burj Dubai drink.'},
+                    {name: 'Passion Mojito', price: 'QR 12 / 20', image: 'page-thumbs/page21_Im0.jpg', desc: 'Passion fruit mojito.'},
+                    {name: 'Strawberry Mojito', price: 'QR 12 / 20', image: 'page-thumbs/page21_Im0.jpg', desc: 'Strawberry mojito cooler.'},
+                    {name: 'Blackberry Mojito', price: 'QR 12 / 20', image: 'page-thumbs/page21_Im0.jpg', desc: 'Blackberry mint mojito.'},
+                    {name: 'Peach Mojito', price: 'QR 12 / 20', image: 'page-thumbs/page21_Im0.jpg', desc: 'Peach mojito refreshment.'},
+                    {name: 'Ruman Mojito', price: 'QR 12 / 20', image: 'page-thumbs/page21_Im0.jpg', desc: 'Ruman style mojito.'},
+                    {name: 'Orange Fresh Bottle', price: 'QR 20 / 40', image: 'page-thumbs/page22_Im0.jpg', desc: 'Bottle orange fresh juice.'},
+                    {name: 'Pomegranate Bottle', price: 'QR 22 / 45', image: 'page-thumbs/page22_Im0.jpg', desc: 'Chilled pomegranate bottle.'},
+                    {name: 'Mango Bottle', price: 'QR 20 / 40', image: 'page-thumbs/page22_Im0.jpg', desc: 'Bottle mango juice.'},
+                    {name: 'Cocktail Bottle', price: 'QR 20 / 40', image: 'page-thumbs/page22_Im0.jpg', desc: 'Bottle cocktail juice.'},
+                    {name: 'Banana Bottle', price: 'QR 12 / 25', image: 'page-thumbs/page22_Im0.jpg', desc: 'Banana bottle juice.'},
+                    {name: 'Orange Bottle', price: 'QR 12 / 25', image: 'page-thumbs/page22_Im0.jpg', desc: 'Orange bottle drink.'},
+                    {name: 'Grape Bottle', price: 'QR 22 / 45', image: 'page-thumbs/page22_Im0.jpg', desc: 'Grape bottle juice.'},
+                    {name: 'Avocado Bottle', price: 'QR 22 / 45', image: 'page-thumbs/page22_Im0.jpg', desc: 'Avocado bottle smoothie.'},
+                    {name: 'Carrot Bottle', price: 'QR 20 / 40', image: 'page-thumbs/page22_Im0.jpg', desc: 'Carrot bottle juice.'},
+                    {name: 'Strawberry Bottle', price: 'QR 17 / 35', image: 'page-thumbs/page22_Im0.jpg', desc: 'Strawberry bottle drink.'},
+                    {name: 'Watermelon Bottle', price: 'QR 17 / 35', image: 'page-thumbs/page22_Im0.jpg', desc: 'Watermelon bottle juice.'}
+                ]
+            };
+            function renderMenu(categoryKey) {
+                const container = document.querySelector(`#nav-${categoryKey} .menu-items-grid`);
+                if (!container) return;
+                container.innerHTML = menuData[categoryKey].map((item, index) => {
+                    const itemId = `${categoryKey}-${index}`;
+                    const animations = ['fadeInUp', 'fadeInLeft', 'fadeInRight', 'zoomIn'];
+                    const animation = animations[index % animations.length];
+                    return `
+                        <div class="col-lg-4 col-md-6 wow ${animation}" data-wow-delay="${index * 0.1}s" data-wow-duration="0.8s">
+                            <div class="menu-item-card">
+                                <img src="${item.image}" alt="${item.name}">
+                                <div class="menu-item-card-body">
+                                    <span class="price">${item.price}</span>
+                                    <h4>${item.name}</h4>
+                                    <p>${item.desc}</p>
+                                    <div class="quantity-selector">
+                                        <button class="qty-btn" onclick="decreaseQty('${itemId}')">−</button>
+                                        <div class="qty-display" id="qty-${itemId}">0</div>
+                                        <button class="qty-btn" onclick="increaseQty('${itemId}', '${item.name}', '${item.price}')">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            // Cart management
+            let cart = {};
+            const WhatsAppPhoneNumber = '+97477821400';
+            let currentSizeSelection = {
+                itemId: null,
+                itemName: null,
+                prices: [],
+                sizes: []
+            };
+            
+            function getSizeInfo(priceStr) {
+                // Parse prices like "QR 22 / 26" or "QR 22"
+                const prices = priceStr.match(/\d+/g);
+                if (!prices || prices.length === 0) return { sizes: ['Single'], prices: [0] };
+                
+                if (prices.length === 1) {
+                    return { sizes: ['Single'], prices: [parseInt(prices[0])] };
+                } else if (prices.length === 2) {
+                    return { sizes: ['Small', 'Large'], prices: [parseInt(prices[0]), parseInt(prices[1])] };
+                } else if (prices.length === 3) {
+                    return { sizes: ['Small', 'Medium', 'Large'], prices: [parseInt(prices[0]), parseInt(prices[1]), parseInt(prices[2])] };
+                }
+                
+                return { sizes: ['Single'], prices: [parseInt(prices[0])] };
+            }
+            
+            function increaseQty(itemId, itemName, itemPrice) {
+                const sizeInfo = getSizeInfo(itemPrice);
+                
+                // If only one size, add directly
+                if (sizeInfo.sizes.length === 1) {
+                    if (!cart[itemId]) {
+                        cart[itemId] = { 
+                            name: itemName, 
+                            price: sizeInfo.prices[0], 
+                            size: sizeInfo.sizes[0],
+                            qty: 0 
+                        };
+                    }
+                    cart[itemId].qty++;
+                    updateQtyDisplay(itemId);
+                    updateSelectedItems();
+                } else {
+                    // Show size selection modal
+                    currentSizeSelection.itemId = itemId;
+                    currentSizeSelection.itemName = itemName;
+                    currentSizeSelection.prices = sizeInfo.prices;
+                    currentSizeSelection.sizes = sizeInfo.sizes;
+                    
+                    showSizeModal(itemName, sizeInfo.sizes, sizeInfo.prices);
+                }
+            }
+            
+            function showSizeModal(itemName, sizes, prices) {
+                document.getElementById('sizeModalTitle').textContent = 'Select Size for ' + itemName;
+                
+                const sizeOptions = document.getElementById('sizeOptions');
+                sizeOptions.innerHTML = sizes.map((size, index) => `
+                    <button class="size-btn" onclick="selectSize(${index})">
+                        ${size} - QR ${prices[index]}
+                    </button>
+                `).join('');
+                
+                document.getElementById('sizeModal').classList.add('show');
+            }
+            
+            function selectSize(sizeIndex) {
+                // Directly add to cart when size is clicked
+                const selectedSize = currentSizeSelection.sizes[sizeIndex];
+                const selectedPrice = currentSizeSelection.prices[sizeIndex];
+                const itemId = currentSizeSelection.itemId + '-' + selectedSize;
+                
+                if (!cart[itemId]) {
+                    cart[itemId] = {
+                        name: currentSizeSelection.itemName,
+                        price: selectedPrice,
+                        size: selectedSize,
+                        qty: 0,
+                        originalId: currentSizeSelection.itemId
+                    };
+                }
+                cart[itemId].qty++;
+                updateQtyDisplay(currentSizeSelection.itemId);
+                closeSizeModal();
+                updateSelectedItems();
+            }
+            
+            function closeSizeModal() {
+                document.getElementById('sizeModal').classList.remove('show');
+                currentSizeSelection = {
+                    itemId: null,
+                    itemName: null,
+                    prices: [],
+                    sizes: []
+                };
+            }
+            
+            function closeSizeModalOnBgClick(event) {
+                if (event.target.id === 'sizeModal') {
+                    closeSizeModal();
+                }
+            }
+            
+            function decreaseQty(itemId) {
+                // For items with sizes, we need to find all variants
+                const cartKeys = Object.keys(cart).filter(key => 
+                    key.startsWith(itemId + '-') || key === itemId
+                );
+                
+                // Find the cart item to decrease
+                let foundKey = null;
+                for (let key of cartKeys) {
+                    if (cart[key] && cart[key].qty > 0) {
+                        foundKey = key;
+                        break;
+                    }
+                }
+                
+                if (foundKey && cart[foundKey].qty > 0) {
+                    cart[foundKey].qty--;
+                    updateQtyDisplay(itemId);
+                    if (cart[foundKey].qty === 0) {
+                        delete cart[foundKey];
+                    }
+                    updateSelectedItems();
+                }
+            }
+            
+            function updateQtyDisplay(itemId) {
+                const qtyDisplay = document.getElementById('qty-' + itemId);
+                if (qtyDisplay) {
+                    let totalQty = 0;
+                    Object.keys(cart).forEach(key => {
+                        if (key.startsWith(itemId + '-') || key === itemId) {
+                            totalQty += cart[key].qty;
+                        }
+                    });
+                    qtyDisplay.textContent = totalQty;
+                }
+            }
+            
+            function updateSelectedItems() {
+                const selectedList = document.getElementById('selectedItemsList');
+                const selectedSection = document.getElementById('selectedItemsSection');
+                const whatsappBtn = document.getElementById('whatsappBtn');
+                
+                const selectedItems = Object.keys(cart).filter(key => cart[key].qty > 0);
+                
+                if (selectedItems.length === 0) {
+                    selectedList.innerHTML = '<div style="color: #999; text-align: center; padding: 20px;">No items selected</div>';
+                    selectedSection.classList.remove('show');
+                    whatsappBtn.disabled = true;
+                    updateTotalPrice();
+                    return;
+                }
+                
+                selectedSection.classList.add('show');
+                whatsappBtn.disabled = false;
+                
+                selectedList.innerHTML = selectedItems.map(itemId => {
+                    const item = cart[itemId];
+                    const subtotal = item.price * item.qty;
+                    
+                    return `
+                        <div class="selected-item">
+                            <span class="selected-item-name">${item.name} (${item.size})</span>
+                            <span class="selected-item-qty">x${item.qty}</span>
+                            <span class="selected-item-price">QR ${subtotal}</span>
+                            <button class="remove-item-btn" onclick="removeItem('${itemId}')">Remove</button>
+                        </div>
+                    `;
+                }).join('');
+                
+                updateTotalPrice();
+            }
+            
+            function removeItem(itemId) {
+                delete cart[itemId];
+                updateSelectedItems();
+            }
+            
+            function updateTotalPrice() {
+                let total = 0;
+                Object.keys(cart).forEach(itemId => {
+                    const item = cart[itemId];
+                    total += item.price * item.qty;
+                });
+                document.getElementById('totalPrice').textContent = 'QR ' + total;
+            }
+            
+            function sendToWhatsApp() {
+                const selectedItems = Object.keys(cart).filter(key => cart[key].qty > 0);
+                
+                if (selectedItems.length === 0) {
+                    alert('Please select items first!');
+                    return;
+                }
+                
+                let message = 'Hello! I would like to place an order:\n\n';
+                let total = 0;
+                
+                selectedItems.forEach(itemId => {
+                    const item = cart[itemId];
+                    const subtotal = item.price * item.qty;
+                    total += subtotal;
+                    message += '• ' + item.name + ' (' + item.size + ') x' + item.qty + ' = QR ' + subtotal + '\n';
+                });
+                
+                message += '\nTotal: QR ' + total + '\n\nThank you!';
+                
+                const encodedMessage = encodeURIComponent(message);
+                const phoneNumber = WhatsAppPhoneNumber.replace(/\D/g, '');
+                const whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + encodedMessage;
+                
+                window.open(whatsappUrl, '_blank');
+                
+                // Refresh page after 1 second to allow WhatsApp to open
+                setTimeout(function() {
+                    location.reload();
+                }, 1000);
+            }
+            
+            
+            Object.keys(menuData).forEach(renderMenu);
+        </script>
+        <!-- Selected Items Section -->
+        <div class="selected-items-section" id="selectedItemsSection">
+            <div class="selected-items-header">
+                Your Order 🛒
+            </div>
+            <div class="selected-items-list" id="selectedItemsList"></div>
+            <div class="total-section">
+                <span>Total:</span>
+                <span class="total-price" id="totalPrice">QR 0</span>
+            </div>
+            <button class="order-btn" id="whatsappBtn" onclick="sendToWhatsApp()" disabled>
+                📱 Order via WhatsApp
+            </button>
+        </div>
+        
+        <!-- Size Selection Modal -->
+        <div class="size-modal" id="sizeModal" onclick="closeSizeModalOnBgClick(event)">
+            <div class="size-modal-content" onclick="event.stopPropagation()">
+                <h3 id="sizeModalTitle">Select Size</h3>
+                <div class="size-options" id="sizeOptions"></div>
+            </div>
+        </div>
+        <!--? Our Services Start -->
+        <div class="our-services section-padding30">
+            <div class="container">
+                <div class="row justify-content-sm-center">
+                    <div class="cl-xl-7 col-lg-8 col-md-10">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-70">
+                            <span>Servicees We Offer</span>
+                            <h2>Our Best Services</h2>
+                        </div> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flaticon-restaurant"></span>
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="#">Best Chef</a></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services active text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flaticon-tools-and-utensils-1"></span>
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="#">Quality Food</a></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-services text-center mb-30">
+                            <div class="services-ion">
+                                <span class="flaticon-restaurant"></span>
+                            </div>
+                            <div class="services-cap">
+                                <h5><a href="#">Perfect Cook</a></h5>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Our Services End -->
+    </main>
+    <footer aria-label="Restaurant site footer with contact information">
+        <!--? Footer Start-->
+        <div class="footer-area section-bg" data-background="gallery/section_bg02.png">
+            <div class="container">
+                <div class="footer-top footer-padding">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- logo -->
+                                <div class="footer-logo">
+                                    <a href="index.html"><img src="logo/karak_station_logo.png" alt="Karak Station logo"></a>
+                                </div>
+                                <div class="footer-contact" aria-labelledby="footer-contact-label">
+                                    <h4 id="footer-contact-label">Restaurant & Cafeteria</h4>
+                                    <p><strong>Restaurant &amp; Cafeteria / مطعم &amp; كافتيريا</strong></p>
+                                    <p>24 HOURS OPEN / مفتوح 24 ساعة</p>
+                                    <p>FREE DELIVERY / توصيل مجاني</p>
+                                    <p>Umm Al Amad, Qatar / أم العماد, قطر</p>
+                                    <p><a href="tel:+97477821400">+974 77821400</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-5 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Navigation</h4>
+                                    <ul aria-label="Footer Navigation">
+                                        <li><a href="index.html" aria-label="Navigate to Home page">Home</a></li>
+                                        <li><a href="blog.html" aria-label="Navigate to Blog page">Events</a></li>
+                                        <li><a href="index.html#testimonial" aria-label="Navigate to Testimonial section">Testimonial</a></li>
+                                        <li><a href="menu.html" aria-label="Navigate to Menu page">Categories</a></li>
+                                        <li><a href="contact.html" aria-label="Navigate to Contact page">Contacts</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-5 col-sm-6">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Useful Links</h4>
+                                    <ul>
+                                        <li><a href="#">Registration</a></li>
+                                        <li><a href="#">Login</a></li>
+                                        <li><a href="#">Policy</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Instagram -->
+                        <div class="col-xl-4 col-lg-4 col-md-5 col-sm-7">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Instagram Feed</h4>
+                                </div>
+                                <div class="instagram-gellay">
+                                    <ul class="insta-feed">
+                                        <li><a href="#"><img src="gallery/instagram1.png" alt=""></a></li>
+                                        <li><a href="#"><img src="gallery/instagram2.png" alt=""></a></li>
+                                        <li><a href="#"><img src="gallery/instagram3.png" alt=""></a></li>
+                                        <li><a href="#"><img src="gallery/instagram4.png" alt=""></a></li>
+                                        <li><a href="#"><img src="gallery/instagram5.png" alt=""></a></li>
+                                        <li><a href="#"><img src="gallery/instagram6.png" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="footer-copy-right">
+                                <p><!-- Link back to Beeone Digital can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | made with <i class="fa fa-heart" aria-hidden="true"></i> by Beeone Digital
+  <!-- Link back to Beeone Digital can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <span>Follow Us</span>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script src="./js/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="./js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="./js/jquery.slicknav.min.js"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="./js/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/animated.headline.js"></script>
+    <script src="./js/jquery.magnific-popup.js"></script>
+
+    <!-- Date Picker -->
+    <script src="./js/gijgo.min.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="./js/jquery.nice-select.min.js"></script>
+    <script src="./js/jquery.sticky.js"></script>
+    
+    <!-- contact js -->
+    <script src="./js/contact.js"></script>
+    <script src="./js/jquery.form.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/mail-script.js"></script>
+    <script src="./js/jquery.ajaxchimp.min.js"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="./js/plugins.js"></script>
+    <script src="./js/main.js"></script>
+    
+    <script>
+        // Initialize WOW.js for scroll animations
+        new WOW().init();
+    </script>
+    <script src="./js/water-animation.js"></script>
+    
+    </body>
+</html>
+
+
+
+
+
